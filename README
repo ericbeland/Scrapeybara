@@ -1,0 +1,20 @@
+Scrapybara
+
+A Capybara-based web scraping tool.
+
+Capybara is a wonderful Ruby project created by Jonas Nicklas that offers a single DSL for automating interactions with web applications for integration tests. By providing a single DSL for a variety of web drivers, Capybara allows for all sorts of awesomeness. Although it humbly thinks it is just a humble integration testing framework, Capybara really provides a lingua franca that allows for driver independent web tools.  Capybara lets a single scripting DSL drive a variety of drivers, including real browsers (firefox, ie, chrome) via selenium/webdriver, direct http-level interaction via mechanize/rack, and simulated headless browsers (with javascript) via Akephalos and HTTP Unit, which makes Capybara make a flexible platform for building all sorts of web tools.
+
+But enough about Capybara...  About me:  I provide a wrapper DSL for scraping web pages via Capybara scripts, a system for extracting related data.
+
+Scrapybara provides:
+
+	- Page content extraction DSL
+	- Pluggable Parameterization system (usernames, passwords)
+	- Pluggable Data Outputters () # for 
+	- Error Recovery DSL for capybara navigations
+
+
+To Do:
+	
+	- Pluggable Response Info Outputters (for easy debugging)
+	- Pacing Options
