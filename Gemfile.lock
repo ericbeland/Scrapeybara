@@ -56,6 +56,7 @@ GEM
     term-ansicolor (1.0.5)
     turn (0.8.2)
       ansi (>= 1.2.2)
+    vcr (1.10.0)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -71,3 +72,4 @@ DEPENDENCIES
   ruby-debug19
   term-ansicolor
   turn
+  vcr
