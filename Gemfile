@@ -5,3 +5,10 @@ source "http://rubygems.org"
 gem "hashie"
 gem "rspec"
 gem "capybara"
+
+gem 'ruby-debug19'
+gem 'autotest'
+gem 'autotest-rails'
+gem 'capybara'
+gem 'term-ansicolor'
+gem 'turn'
