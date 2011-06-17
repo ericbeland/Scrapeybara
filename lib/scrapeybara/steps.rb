@@ -6,7 +6,6 @@ module Steps
     c = Hashie::Clash.new
 
 
-
     begin
       result = yield
     rescue Exception => e

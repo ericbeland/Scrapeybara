@@ -23,6 +23,12 @@ describe 'DSL' do
         </div>
       STRING
     end
+    
+    it 'has retry ability' do
+      retry(3) { }
+      
+      
+    end
 
     it "allows using matchers" do
       string.should have_css('#page')
