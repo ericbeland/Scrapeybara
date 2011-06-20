@@ -9,28 +9,33 @@ GEM
       ZenTest (>= 4.4.1)
     autotest-rails (4.1.0)
       ZenTest
-    capybara (1.0.0)
+    capybara (0.4.1.2)
+      celerity (>= 0.7.9)
+      culerity (>= 0.2.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
-      selenium-webdriver (~> 0.2.0)
-      xpath (~> 0.1.4)
+      selenium-webdriver (>= 0.0.27)
+      xpath (~> 0.1.3)
+    celerity (0.8.9)
     childprocess (0.1.9)
       ffi (~> 1.0.6)
     coderay (0.9.8)
     columnize (0.3.3)
     crack (0.1.8)
+    culerity (0.2.15)
     diff-lcs (1.1.2)
     ffi (1.0.9)
     hashie (1.0.0)
+    headless (0.1.0)
     json_pure (1.5.2)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
     method_source (0.6.0)
       ruby_parser (>= 2.0.5)
     mime-types (1.16)
-    nokogiri (1.4.4)
+    nokogiri (1.4.5)
     pry (0.9.1)
       coderay (>= 0.9.8)
       method_source (>= 0.6.0)
@@ -89,8 +94,9 @@ PLATFORMS
 DEPENDENCIES
   autotest
   autotest-rails
-  capybara
+  capybara (~> 0.4.1)
   hashie
+  headless
   pry_debug
   rspec
   ruby-debug19

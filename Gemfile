@@ -4,10 +4,10 @@ source "http://rubygems.org"
 
 gem "hashie"
 gem "rspec"
-gem "capybara"
-gem "akephalos"
+gem "capybara", "~>0.4.1"
+# gem "capybara-webkit",:git => 'git://github.com/thoughtbot/capybara-webkit.git'
 
-
+gem 'headless'
 gem "pry_debug"
 
 gem 'webmock'
@@ -15,7 +15,6 @@ gem 'sinatra'
 gem 'ruby-debug19'
 gem 'autotest'
 gem 'autotest-rails'
-gem 'capybara'
 gem 'term-ansicolor'
 gem 'turn'
 gem 'vcr'
