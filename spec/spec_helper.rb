@@ -13,14 +13,13 @@ require_relative  '../lib/scrapeybara'
 path = File.join(File.dirname(__FILE__), "spec/factories/**/*.rb")
 
 RSpec.configure do |config| 
-  include Capybara::DSL
+  include Capybara
 end
 
 Capybara.current_driver = :selenium
-app_host = 'http://www.google.com'
-Capybara.app_host = app_host
-Capybara.run_server = false 
- 
+Capybara.run_server = false
+#Capybara.app_host = 'http://www.google.com'
+
 #VCR.config do |c|
 #  c.cassette_library_dir = 'fixtures/vcr_cassettes'
 #  c.stub_with :webmock # or :fakeweb

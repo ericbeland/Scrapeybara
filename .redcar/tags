@@ -1,0 +1,19 @@
+1308605469
+ErrorRecovery	/home/ebeland/apps/scrapeybara/lib/scrapeybara/error_recovery.rb	module ErrorRecovery 
+Scrape	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	module Scrape
+Scraper	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	  class Scraper 
+Scrapeybara	/home/ebeland/apps/scrapeybara/lib/scrapeybara.rb	module Scrapeybara
+Scrapeybara	/home/ebeland/apps/scrapeybara/lib/scrapeybara/version.rb	module Scrapeybara
+ScrapeybaraGenerator	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	class ScrapeybaraGenerator 
+VERSION	/home/ebeland/apps/scrapeybara/lib/scrapeybara/version.rb	  VERSION =
+create	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	    def self.create(element = nil, options = {:default => :xpath})
+element	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	    attr_accessor :options, :element
+extract	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	    def extract(item_locator)     
+file_name	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	  def file_name
+manifest	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	  def manifest
+method_missing	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	  def method_missing(method, *args)
+next_migration_number	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	  def self.next_migration_number(path)
+options	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	    attr_accessor :options, :element
+scrape	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	    def self.scrape(options, &block)
+source_root	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	  def self.source_root
+with_retry	/home/ebeland/apps/scrapeybara/lib/scrapeybara/error_recovery.rb	  def with_retry(opts = {} , &block)

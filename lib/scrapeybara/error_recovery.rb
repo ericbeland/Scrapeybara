@@ -1,25 +1,20 @@
-module ErrorRecovery
-  
-  def retry(opts = {} , &block)
-    options = {:retries => 3, :wait => 10 }.merge(opts)
-    result = []
-    success = nil
-    retries = options[:retries]
-    until success || retries == 0 
+module ErrorRecovery  
+    
+  def with_retry(opts = {} , &block)
+    options = {:limit => 3, :wait => 10, :reset =>nil }.merge(opts)
+    results = []
+    retries = 0
+    until results.length > 0 and !(results.last.is_a?(Exception)) || (retries == options[:limit])
       begin
-        retries -= 1
-        success = block.call
+        retries += 1        
+        results << yield
       rescue Exception => e 
-        result << e
+        results << e
       end    
-      if success
-        result << success
-      else        
-        sleep options[:wait]                  
-      end
+      (options[:reset].call rescue nil) if options[:reset]      
+      sleep options[:wait]                      
     end
-    result
-  end    
-  
+    results
+  end      
   
 end

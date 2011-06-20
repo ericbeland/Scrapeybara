@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'hashie'
+require 'json'
 
 module Scrape
   
@@ -16,8 +17,8 @@ module Scrape
       s.element =  element # context of where I am in the document, so I can be searched-within
       s
     end  
-  
-  def extract(item_locator)     
+    
+    def extract(item_locator)     
       return item_locator # stub 
       if item_locator.is_a?(Hash)      
         finder_key = item_locator[:xpath] ? :xpath : :css      

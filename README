@@ -37,8 +37,10 @@ s = Scraper.new(:outputter => MyOutputter.new,
     p listing.price
   end
   
-
-
+  
+  If you want to use the transaction/step capabilities within a rails project, run
+     ./script/generate scrapeybara
+      
 
 
 To Do:

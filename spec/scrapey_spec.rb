@@ -2,8 +2,11 @@ require_relative 'spec_helper.rb'
 require_relative '../lib/scrapeybara'
 
 describe 'Scrapebara' do
-    
-  let :string do
+  include Scrapeybara
+  
+  context 'Scraping Results' do
+  
+    let :string do
     Capybara.string <<-STRING
     <div id="page">
       <div id="content">
@@ -23,52 +26,102 @@ describe 'Scrapebara' do
     STRING
   end
     
-  before :each do  
-    @result = Scrapeybara::Scraper::scrape(:default => :xpath) do  |s|
-      s.listings :xpath => '//tr[@class=listing]' do |listing|    
-        listing.hello      'td[@class=name]'   
-        listing.hello do |h|
-          h.goodbye 'bye' 
-        end    
-     end    
-    end
-  end    
-    
-  it 'should return a result for listing' do
-    @result.listings.nil?.should be_false
-    @result.made_up_thing.nil?.should be_true      
-    @result.listings.hello.nil?.should be_false      
-  end    
   
-  it 'should return the element for each item' do
-   string.nil?.should be_false
+    before :each do  
+      @result = Scrapeybara::Scraper::scrape(:default => :xpath) do  |s|
+        s.listings :xpath => '//tr[@class=listing]' do |listing|    
+          listing.hello      'td[@class=name]'   
+          listing.hello do |h|
+            h.goodbye 'bye' 
+          end    
+       end      
+      end      
+    end   
     
-  end
+    it 'should return a result for listing' do
+      @result.listings.nil?.should be_false
+      @result.made_up_thing.nil?.should be_true      
+      @result.listings.hello.nil?.should be_false      
+    end    
+  
+    it 'should return the element for each item' do
+     string.nil?.should be_false
+    
+    end
+  
+    it 'should provide json output format' do
+      @result.to_json
+    end
+  
+    it 'should provide xml output format' do
+      @result.to_xml
+    end
+  
+  end 
+  
   
   it 'should use capybara' do
-    visit 'http://www.google.com'
-    page.nil?.should be_false
+   # visit 'http://www.google.com'
+  #  page.nil?.should be_false
   end
   
-  it 'should run retry blocks the correct number of times' do
+  
+      
+  it 'should keep track of scraping steps and results' do
+      
     
   end
   
-  it 'should collect failing results of retries' do
-  
-  end
-  
-  it 'should stop retrying after success' do
+  it 'should provide a global transaction result' do
     
   end
   
-  it 'should capture failure information' do
+  context 'retries' do
   
-  end
+    it 'should collect results of retries' do
+      result = with_retry :limit => 3, :wait => 0.0001  do
+        3
+      end
+      (result.last == 3).should be_true    
+    end
   
-  it 'should ' do
+    it 'should stop retrying after success' do
+      retry_count = 0
+      with_retry :limit => 3, :wait => 0.00001  do
+        retry_count += 1                  
+        raise "I am an exception" if retry_count == 1
+      end
+      (retry_count == 2).should be_true    
+    end
+  
+    it 'should capture failure information' do
+      result = with_retry :limit => 3, :wait => 0.00001  do
+        retry_count += 1                  
+        raise "I am an exception" if retry_count == 1
+      end
+      result.last.is_a?(Exception).should be_true
+    end  
     
+    it 'should run the optional reset block upon each retry' do
+      @reset_called = 0
+      reset = lambda { @reset_called += 1 }
+      with_retry(:limit => 2, :wait => 0.00001, :reset => reset ) do
+        raise 'foo'
+      end  
+      (@reset_called == 2).should be_true
+    end
+    
+    it 'should run retry blocks the correct number of times' do
+      retry_count = 0
+      with_retry :limit => 3, :wait => 0.00001  do
+        retry_count += 1
+        raise 'Foo'        
+      end
+      retry_count.should == 3
+    end
+
   end
+  
 
 end
     

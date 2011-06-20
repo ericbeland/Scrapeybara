@@ -4,10 +4,14 @@ source "http://rubygems.org"
 
 gem "hashie"
 gem "rspec"
-gem "capybara", "~>0.4.1"
-# gem "capybara-webkit",:git => 'git://github.com/thoughtbot/capybara-webkit.git'
 
+gem "capybara", "~>0.4.1"
+gem "capybara-webkit", :git => 'git://github.com/thoughtbot/capybara-webkit.git'
 gem 'headless'
+
+gem  'akephalos' #,:git => 'git://github.com/asceth/akephalos.git'
+
+
 gem "pry_debug"
 
 gem 'webmock'

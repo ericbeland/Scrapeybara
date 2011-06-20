@@ -1,5 +1,4 @@
 require_relative 'scrapeybara/error_recovery'
-require_relative 'scrapeybara/result_formatters'
 require_relative 'scrapeybara/scrape'
 require_relative 'scrapeybara/steps'
 require_relative 'scrapeybara/transaction_result'
@@ -12,13 +11,11 @@ require_relative 'scrapeybara/version'
 
 #Capybara.app_host = 'http://www.google.com'
 
-
 module Scrapeybara
   
   include ErrorRecovery
-  include ResultFormatters
   include Scrape
   include Steps
-#  include Capybara::DSL
+  include Capybara
   
 end
