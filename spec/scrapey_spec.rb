@@ -50,9 +50,25 @@ describe 'Scrapebara' do
     page.nil?.should be_false
   end
   
+  it 'should run retry blocks the correct number of times' do
+    
+  end
   
+  it 'should collect failing results of retries' do
+  
+  end
+  
+  it 'should stop retrying after success' do
+    
+  end
+  
+  it 'should capture failure information' do
+  
+  end
+  
+  it 'should ' do
+    
+  end
 
-  
-  
 end
     
