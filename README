@@ -21,21 +21,10 @@ Scrapybara provides:
 	- Pluggable Data Outputters  
 	- Error Recovery DSL for capybara navigations
   
-s = Scraper.new(:outputter => MyOutputter.new, 
-                :result_outputter => MyResultOutputter.new)
+
                                 
 
-@results = s.run(:script => File.read(txt), :parameters => CSVParams.new('filename.csv')) 
-
-  listings = scrape(:xpath) '//tr[class=listing]' do
-    address '//td[class=address]'      
-    price '//td[class=address]'          
-  end
-    
-  listings.each do |listing|
-    p listing.address
-    p listing.price
-  end
+  # https://gist.github.com/569530
   
   
   If you want to use the transaction/step capabilities within a rails project, run
