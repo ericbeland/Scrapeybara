@@ -1,4 +1,4 @@
-class RunMigration < ActiveRecord::Migration
+class CreateRuns < ActiveRecord::Migration
   
   def self.up
     create_table :runs do |t|

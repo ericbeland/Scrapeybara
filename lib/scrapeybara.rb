@@ -3,6 +3,8 @@ require_relative 'scrapeybara/scrape'
 require_relative 'scrapeybara/steps'
 require_relative 'scrapeybara/transaction_result'
 require_relative 'scrapeybara/version'
+require_relative 'scrapeybara/params'
+
 
 #require 'capybara'
 #require 'capybara/dsl'
@@ -17,5 +19,6 @@ module Scrapeybara
   include Scrape
   include Steps
   include Capybara
+  include Params
   
 end

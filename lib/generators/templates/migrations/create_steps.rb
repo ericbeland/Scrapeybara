@@ -1,4 +1,4 @@
-class Step < ActiveRecord::Migration
+class CreateSteps < ActiveRecord::Migration
 
   def self.up
     create_table :steps do |t|
@@ -15,7 +15,7 @@ class Step < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :transaction_result
+    drop_table :steps
   end
 
 end

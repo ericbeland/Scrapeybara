@@ -1,4 +1,4 @@
-class TransactionResult < ActiveRecord::Migration
+class CreateTransactionResults < ActiveRecord::Migration
   def self.up
     create_table :transaction_results do |t|
       t.column :id, :integer
@@ -8,6 +8,6 @@ class TransactionResult < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :transaction_result
+    drop_table :transaction_results
   end
 end
