@@ -59,22 +59,32 @@ describe 'Scrapebara' do
   
   end 
   
+  context 'parameterization' do
+    
+    it 'should cycle through records' do
+      p = Parameters.new("name,number\njohn,1234\nmary,4567", :selection_method => :use_all_records)
+      row_1 = p.get_row(1)
+      row_1.include?('john').should be_true
+      row_1.include?('mary').should be_false    
+      p.get_row(1).include?('mary').should be_true
+    end
+    
+    it 'should repeat the record when given same identifier' do
+      p = Parameters.new("name,number\njohn,1234\nmary,4567", :selection_method => :use_all_records)
+      row = p.get_row(1)
+      row.should == p.get_row(1)
+    end    
+    
+  end
+  
+  
   
   it 'should use capybara' do
    # visit 'http://www.google.com'
   #  page.nil?.should be_false
   end
   
-  
-      
-  it 'should keep track of scraping steps and results' do
-      
     
-  end
-  
-  it 'should provide a global transaction result' do
-    
-  end
   
   context 'retries' do
   
