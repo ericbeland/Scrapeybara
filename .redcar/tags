@@ -1,19 +1,46 @@
-1308605469
+1308772389
+CreateRuns	/home/ebeland/apps/scrapeybara/lib/generators/templates/migrations/create_runs.rb	class CreateRuns 
+CreateSteps	/home/ebeland/apps/scrapeybara/lib/generators/templates/migrations/create_steps.rb	class CreateSteps 
+CreateTransactionResults	/home/ebeland/apps/scrapeybara/lib/generators/templates/migrations/create_transaction_results.rb	class CreateTransactionResults 
 ErrorRecovery	/home/ebeland/apps/scrapeybara/lib/scrapeybara/error_recovery.rb	module ErrorRecovery 
+Parameters	/home/ebeland/apps/scrapeybara/lib/scrapeybara/params.rb	  class Parameters
+Params	/home/ebeland/apps/scrapeybara/lib/scrapeybara/params.rb	module Params 
+Run	/home/ebeland/apps/scrapeybara/lib/generators/templates/models/run.rb	class Run 
 Scrape	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	module Scrape
 Scraper	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	  class Scraper 
+Scrapeybara	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	module Scrapeybara
 Scrapeybara	/home/ebeland/apps/scrapeybara/lib/scrapeybara.rb	module Scrapeybara
 Scrapeybara	/home/ebeland/apps/scrapeybara/lib/scrapeybara/version.rb	module Scrapeybara
-ScrapeybaraGenerator	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	class ScrapeybaraGenerator 
+Step	/home/ebeland/apps/scrapeybara/lib/generators/templates/models/step.rb	class Step 
+TransactionResult	/home/ebeland/apps/scrapeybara/lib/generators/templates/models/transaction_result.rb	class TransactionResult 
+TransactionsGenerator	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	  class TransactionsGenerator 
 VERSION	/home/ebeland/apps/scrapeybara/lib/scrapeybara/version.rb	  VERSION =
+copy_models	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	    def copy_models
 create	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	    def self.create(element = nil, options = {:default => :xpath})
+create_migrations	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	    def create_migrations
+current_step	/home/ebeland/apps/scrapeybara/lib/generators/templates/models/transaction_result.rb	  def current_step
+delay	/home/ebeland/apps/scrapeybara/lib/generators/templates/models/transaction_result.rb	  def delay
+down	/home/ebeland/apps/scrapeybara/lib/generators/templates/migrations/create_runs.rb	  def self.down
+down	/home/ebeland/apps/scrapeybara/lib/generators/templates/migrations/create_steps.rb	  def self.down
+down	/home/ebeland/apps/scrapeybara/lib/generators/templates/migrations/create_transaction_results.rb	  def self.down
 element	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	    attr_accessor :options, :element
 extract	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	    def extract(item_locator)     
-file_name	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	  def file_name
-manifest	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	  def manifest
+failed?	/home/ebeland/apps/scrapeybara/lib/generators/templates/models/transaction_result.rb	  def failed?
+get_row	/home/ebeland/apps/scrapeybara/lib/scrapeybara/params.rb	    def get_row(user_number)   
+initialize	/home/ebeland/apps/scrapeybara/lib/scrapeybara/params.rb	    def initialize(csv_string, options={})     
 method_missing	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	  def method_missing(method, *args)
-next_migration_number	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	  def self.next_migration_number(path)
+next_migration_number	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	    def self.next_migration_number(path)
 options	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	    attr_accessor :options, :element
+result	/home/ebeland/apps/scrapeybara/lib/generators/templates/models/transaction_result.rb	  def result
 scrape	/home/ebeland/apps/scrapeybara/lib/scrapeybara/scrape.rb	    def self.scrape(options, &block)
-source_root	/home/ebeland/apps/scrapeybara/lib/generators/scrapeybara_generator.rb	  def self.source_root
+selection_method	/home/ebeland/apps/scrapeybara/lib/scrapeybara/params.rb	    attr_accessor :selection_method
+set_variables_in_binding	/home/ebeland/apps/scrapeybara/lib/scrapeybara/params.rb	    def set_variables_in_binding(user_number, binding_obj)
+step	/home/ebeland/apps/scrapeybara/lib/generators/templates/models/transaction_result.rb	  def step(name, options = {})
+step	/home/ebeland/apps/scrapeybara/lib/scrapeybara/error_recovery.rb	  def step(name, options = {:retry => 0})
+step_begin	/home/ebeland/apps/scrapeybara/lib/generators/templates/models/transaction_result.rb	  def step_begin(name)
+step_end	/home/ebeland/apps/scrapeybara/lib/generators/templates/models/transaction_result.rb	  def step_end
+think_time=	/home/ebeland/apps/scrapeybara/lib/generators/templates/models/transaction_result.rb	  def think_time=(val)
+up	/home/ebeland/apps/scrapeybara/lib/generators/templates/migrations/create_runs.rb	  def self.up
+up	/home/ebeland/apps/scrapeybara/lib/generators/templates/migrations/create_steps.rb	  def self.up
+up	/home/ebeland/apps/scrapeybara/lib/generators/templates/migrations/create_transaction_results.rb	  def self.up
 with_retry	/home/ebeland/apps/scrapeybara/lib/scrapeybara/error_recovery.rb	  def with_retry(opts = {} , &block)

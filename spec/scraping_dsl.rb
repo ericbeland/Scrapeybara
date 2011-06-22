@@ -1,4 +1,5 @@
-
+require_relative 'spec_helper.rb'
+require_relative '../lib/scrapeybara'
 
 
 describe 'DSL' do
@@ -22,12 +23,6 @@ describe 'DSL' do
           </div>
         </div>
       STRING
-    end
-    
-    it 'has retry ability' do
-      retry(3) { }
-      
-      
     end
 
     it "allows using matchers" do

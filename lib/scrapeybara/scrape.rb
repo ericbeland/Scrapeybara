@@ -54,7 +54,7 @@ module Scrape
         case args.length
         when 1 # set value        
             current_items = extract(args[0])  
-            self[method] =  current_items # 1st time, not an array
+            self[method]  = current_items # 1st time, not an array
           when 0 
             return self[method]
           end    

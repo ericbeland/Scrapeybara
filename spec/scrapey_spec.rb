@@ -62,18 +62,25 @@ describe 'Scrapebara' do
   context 'parameterization' do
     
     it 'should cycle through records' do
-      p = Parameters.new("name,number\njohn,1234\nmary,4567", :selection_method => :use_all_records)
-      row_1 = p.get_row(1)
-      row_1.include?('john').should be_true
-      row_1.include?('mary').should be_false    
-      p.get_row(1).include?('mary').should be_true
+      pa = Parameters.new("name,number\njohn,1234\nmary,4567", :selection_method => :use_all_records)
+      row_1 = pa.get_row(1)
+      row_1['name'].should  == 'john'
+      row_1.to_s.include?('mary').should be_false    
+      pa.get_row(1)['name'].should == 'mary'
     end
     
     it 'should repeat the record when given same identifier' do
-      p = Parameters.new("name,number\njohn,1234\nmary,4567", :selection_method => :use_all_records)
-      row = p.get_row(1)
-      row.should == p.get_row(1)
+      pa = Parameters.new("name,number\njohn,1234\nmary,4567", :selection_method => :use_same_record)
+      row = pa.get_row(1)
+      row.should == pa.get_row(1)
     end    
+    
+    it 'should set variables into binding' do
+      pa = Parameters.new("name,number\njohn,1234\nmary,4567", :selection_method => :use_same_record)
+      pa.set_variables_in_binding(1, self)
+      @name.should == 'john'
+      @number.should == '1234'
+    end
     
   end
   
@@ -105,6 +112,7 @@ describe 'Scrapebara' do
     end
   
     it 'should capture failure information' do
+      retry_count = 0
       result = with_retry :limit => 3, :wait => 0.00001  do
         retry_count += 1                  
         raise "I am an exception" if retry_count == 1
@@ -115,10 +123,10 @@ describe 'Scrapebara' do
     it 'should run the optional reset block upon each retry' do
       @reset_called = 0
       reset = lambda { @reset_called += 1 }
-      with_retry(:limit => 2, :wait => 0.00001, :reset => reset ) do
+      with_retry(:limit => 2, :wait => 0.00001, :reset => reset ) do        
         raise 'foo'
       end  
-      (@reset_called == 2).should be_true
+      (@reset_called == 1).should be_true
     end
     
     it 'should run retry blocks the correct number of times' do
