@@ -3,7 +3,7 @@ module StepResults
   def step(step_name, options = {:retry => 0, })
     log.info("Starting #{step_name}") if log
     step_obj = Step.new(step_name) if defined?(Step)       
-
+    duration_time = 0
     results = with_retry(:retry => options[:retry]) do
       start_time = Time.now  
       yield      
