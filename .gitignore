@@ -6,6 +6,7 @@ config/database.yml
 *.tmproj
 .idea
 .redcar/**
+.redcar/lucene/**
 .swp
 
 
