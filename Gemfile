@@ -14,11 +14,11 @@ gem  'akephalos' #,:git => 'git://github.com/asceth/akephalos.git'
 
 gem "pry_debug"
 
-gem 'webmock'
+# gem 'webmock'
 gem 'sinatra'
 gem 'ruby-debug19'
 gem 'autotest'
 gem 'autotest-rails'
 gem 'term-ansicolor'
 gem 'turn'
-gem 'vcr'
+# gem 'vcr'
