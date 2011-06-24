@@ -20,10 +20,6 @@ module ErrorRecovery
     results
   end      
   
-  def step(name, options = {:retry => 0})
-    results = with_retry(options[:retry]) do
-      yield      
-    end    
-  end
+  
   
 end
