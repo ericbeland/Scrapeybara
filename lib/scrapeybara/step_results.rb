@@ -14,7 +14,7 @@ module StepResults
       end
     end           
   
-    log.info("Completed #{step_name} in #{duration}") if log
+    log.info("Completed #{step_name} in #{duration_time}") if log
     results
   end
 
