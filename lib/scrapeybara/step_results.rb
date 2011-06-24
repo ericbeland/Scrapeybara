@@ -1,7 +1,7 @@
 module StepResults
 
   def step(step_name, options = {:retry => 0, })
-    logger.info("Starting #{step_name}") if logger  
+    log.info("Starting #{step_name}") if log
     step_obj = Step.new(step_name) if defined?(Step)       
 
     results = with_retry(:retry => options[:retry]) do
@@ -14,7 +14,7 @@ module StepResults
       end
     end           
   
-    logger.info("Completed #{step_name} in #{duration}") if logger
+    log.info("Completed #{step_name} in #{duration}") if log
     results
   end
 
