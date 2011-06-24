@@ -4,7 +4,7 @@ module StepResults
     logger.info("Starting #{step_name}") if logger  
     step_obj = Step.new(step_name) if defined?(Step)       
 
-    results = with_retry(options[:retry]) do
+    results = with_retry(:retry => options[:retry]) do
       start_time = Time.now  
       yield      
       duration = Time.now - start_time        
