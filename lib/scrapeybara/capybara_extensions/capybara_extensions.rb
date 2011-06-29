@@ -3,10 +3,13 @@ require_relative 'verifiers'
 require_relative 'multi_assert'
 require_relative 'results'
 require_relative 'driver/driver_helpers'
+require_relative 'driver/selenium_driver_headers'
+
 require 'test/unit'
 
 module CapybaraExtensions
   include Test::Unit::Assertions
+  include CapybaraExtensions::SeleniumDriverHeaders
   include CapybaraExtensions::DriverHelpers
   include CapybaraExtensions::MultiAssert
   include CapybaraExtensions::Navigation
