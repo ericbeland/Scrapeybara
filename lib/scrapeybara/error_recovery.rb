@@ -16,7 +16,10 @@ module ErrorRecovery
         else          
           raise e
         end        
-        sleep options[:delay] if options[:delay]
+        if options[:delay]
+          @log.debug("Sleeping for #{options[:delay]}") if @log
+          sleep options[:delay] 
+        end
       end    
     end
     results
