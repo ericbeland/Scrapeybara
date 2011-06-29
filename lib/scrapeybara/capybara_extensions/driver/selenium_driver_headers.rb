@@ -10,15 +10,8 @@ module CapybaraExtensions::SeleniumDriverHeaders
     :selenium_ff_4_0  =>    "Mozilla/5.0 (X11; U; Linux x86_64; pl-PL; rv:2.0) Gecko/20110307 Firefox/4.0"
   }
 
-  def self.included(base)
-    @@driver_headers.each do |key, value|
-      create_selenium_driver_with_headers(key, value)
-    end    
-  end
 
-  
-
-  def create_selenium_driver_with_headers(driver_name_sym, user_agent_string)
+  def self.create_selenium_driver_with_headers(driver_name_sym, user_agent_string)
     Capybara.register_driver driver_name_sym do |app|   
       require 'selenium/webdriver'
       profile = Selenium::WebDriver::Firefox::Profile.new
@@ -26,6 +19,14 @@ module CapybaraExtensions::SeleniumDriverHeaders
       Capybara::Driver::Selenium.new(app, :profile => profile)
     end
   end
+
+  def self.included(base)
+    @@driver_headers.each do |key, value|
+      create_selenium_driver_with_headers(key, value)
+    end    
+  end
+
+  
 
 
 end
