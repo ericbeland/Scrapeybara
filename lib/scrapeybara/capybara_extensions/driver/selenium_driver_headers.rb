@@ -1,3 +1,4 @@
+require 'capybara'
 
 module CapybaraExtensions::SeleniumDriverHeaders
 
@@ -12,7 +13,7 @@ module CapybaraExtensions::SeleniumDriverHeaders
 
 
   def self.create_selenium_driver_with_headers(driver_name_sym, user_agent_string)
-    Capybara.register_driver driver_name_sym do |app|   
+    Capybara.register_driver driver_name_sym do |app|
       require 'selenium/webdriver'
       profile = Selenium::WebDriver::Firefox::Profile.new
       profile['general.useragent.override'] = user_agent_string
@@ -22,9 +23,9 @@ module CapybaraExtensions::SeleniumDriverHeaders
 
   def self.included(base)
     @@driver_headers.each do |key, value|
-      CapybaraExtensions::SeleniumDriverHeaders.create_selenium_driver_with_headers(key, value)
-    end    
-  end 
+      self.create_selenium_driver_with_headers(key, value)
+    end
+  end
 
 
 end
