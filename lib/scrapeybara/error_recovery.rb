@@ -15,13 +15,14 @@ module ErrorRecovery
           sleep options[:retry_wait]
         else          
           raise e
-        end        
-        if options[:delay]
-          @log.debug("Sleeping for #{options[:delay]}") if @log
-          sleep options[:delay] 
-        end
-      end    
+        end                
+      end          
     end
+    if options[:delay]
+      @log.debug("Sleeping for #{options[:delay]}") if @log
+      sleep options[:delay] 
+    end
+        
     results
   end        
   
