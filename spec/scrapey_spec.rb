@@ -96,7 +96,7 @@ describe 'Scrapebara' do
   context 'retries' do
   
     it 'should collect results of retries' do
-      result = with_retry :limit => 3, :wait => 0.0001  do
+      result = with_retry :tries => 3, :wait => 0.0001, :retry_wait => 0 do
         3
       end
       (result.last == 3).should be_true    
@@ -104,37 +104,38 @@ describe 'Scrapebara' do
   
     it 'should stop retrying after success' do
       retry_count = 0
-      with_retry :limit => 3, :wait => 0.00001  do
+      with_retry :tries => 3, :retry_wait => 0.00001, :retry_wait => 0  do
         retry_count += 1                  
         raise "I am an exception" if retry_count == 1
       end
       (retry_count == 2).should be_true    
     end
   
-    it 'should capture failure information' do
-      retry_count = 0
-      result = with_retry :limit => 3, :wait => 0.00001  do
-        retry_count += 1                  
-        raise "I am an exception" if retry_count == 1
-      end
-      result.last.is_a?(Exception).should be_true
-    end  
-    
+  
     it 'should run the optional reset block upon each retry' do
       @reset_called = 0
       reset = lambda { @reset_called += 1 }
-      with_retry(:limit => 2, :wait => 0.00001, :reset => reset ) do        
-        raise 'foo'
-      end  
-      (@reset_called == 1).should be_true
+      begin
+        with_retry(:tries => 2, :wait => 0.00001, :reset => reset, :retry_wait => 0 ) do        
+          raise 'foo'
+        end  
+      rescue Exception => e
+        
+      end
+      @reset_called.should == 2
     end
     
-    it 'should run retry blocks the correct number of times' do
+    it 'should retry the correct number of times' do
       retry_count = 0
-      with_retry :limit => 3, :wait => 0.00001  do
-        retry_count += 1
-        raise 'Foo'        
+      begin
+      with_retry :tries => 3, :wait => 0.00001, :retry_wait => 0  do        
+          retry_count += 1
+          raise 'Foo'        
       end
+      
+      rescue Exception => e
+      end      
+  
       retry_count.should == 3
     end
 

@@ -6,7 +6,7 @@ require "bundler/setup"
 require 'rspec'
 
 require 'capybara/dsl' 
-require 'vcr'
+#require 'vcr'
 
 require_relative  '../lib/scrapeybara'
 

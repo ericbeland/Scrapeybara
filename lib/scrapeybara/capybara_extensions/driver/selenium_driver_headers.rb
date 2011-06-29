@@ -22,11 +22,9 @@ module CapybaraExtensions::SeleniumDriverHeaders
 
   def self.included(base)
     @@driver_headers.each do |key, value|
-      create_selenium_driver_with_headers(key, value)
+      CapybaraExtensions::SeleniumDriverHeaders.create_selenium_driver_with_headers(key, value)
     end    
-  end
-
-  
+  end 
 
 
 end

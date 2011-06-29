@@ -8,7 +8,15 @@ require 'selenium-webdriver'
 
 module ::Selenium::WebDriver::Remote      
   class Bridge
-      cattr_accessor :speed
+    @@speed = nil
+    
+    def self.speed
+      @@speed  
+    end
+    
+    def self.speed=(val)
+      @@speed = speed
+    end
 
       def execute(*args)
         result = raw_execute(*args)['value']
